@@ -1,0 +1,36 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Projection root'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define root view entity zac_order provider contract transactional_query as projection on zi_order_ai
+{
+    key OrderId,
+    CustomerName,
+    CreatedDate,
+    DeliveryDate,
+    @Semantics.amount.currencyCode: 'Currcode'
+    OrderAmount,
+    Currcode,
+    OrderComments,
+       @Consumption.valueHelpDefinition: [
+{
+    entity: {
+        name: 'zi_status',
+        element: 'StatusText'
+    }
+}
+]
+@ObjectModel.text.association: '_status'
+    Status,
+    ReturnOrder,
+    AiPriority,
+    AiSentiment,
+    AiSummary,
+    EscalationRequired,
+    CreatedAt,
+    _Items : redirected to composition child zac_item,
+    _invoice : redirected to composition child zav_invoice,
+    _Recommd :  redirected to composition child zac_ai_recommd,
+    _status
+    
+}

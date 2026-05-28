@@ -1,0 +1,22 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Ai recommendation projection'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define view entity zac_ai_recommd as projection on zi_ai_recommd
+{
+    key RecommendationId,
+    key OrderId,
+    Kunnr,
+    ActionType,
+    Priority,
+    RecommendationText,
+    AiReason,
+    Status,
+    AssignedTo,
+    DueDate,
+    ResolvedOn,
+    CreatedBy,
+    CreatedAt,
+    /* Associations */
+    _Order :redirected to parent zac_order
+}
