@@ -1,0 +1,88 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Inovice',
+    typeNamePlural: 'Invoice',
+    title: {
+      type: #STANDARD,
+      value: 'InvoiceNo'
+    }
+  }
+}
+annotate entity zav_invoice
+    with 
+{
+     @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Item Information',
+      position: 10,
+      targetQualifier: 'ItemInfo'
+    }
+  ]
+
+  @EndUserText.label: 'Order ID'
+  @UI.identification: [{ position: 10, label: 'Order ID' }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH, label: 'Order ID' }]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 10 }
+  ]
+  OrderId;
+
+  @EndUserText.label: 'Invoice Number'
+  @UI.identification: [{ position: 20, label: 'Invoice Number' }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH, label: 'Invoice Number' }]
+  @UI.selectionField: [{ position: 20 }]
+  @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 20 }
+  ]
+  InvoiceNo;
+
+  @EndUserText.label: 'Invoice Type'
+  @UI.identification: [{ position: 30, label: 'Invoice Type' }]
+  @UI.lineItem: [{ position: 30, importance: #MEDIUM, label: 'Invoice Type' }]
+  @UI.selectionField: [{ position: 30 }]
+  @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 30 }
+  ]
+  InvoiceType;
+
+  @EndUserText.label: 'Currency Code'
+  @UI.identification: [{ position: 40, label: 'Currency Code' }]
+  @UI.lineItem: [{ position: 40, importance: #MEDIUM, label: 'Currency' }]
+  @UI.selectionField: [{ position: 40 }]
+  @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 40 }
+  ]
+  @UI.hidden: true
+  Currcode;
+
+  @EndUserText.label: 'Net Value'
+  @UI.identification: [{ position: 50, label: 'Net Value' }]
+  @UI.lineItem: [{ position: 50, importance: #HIGH, label: 'Net Value' }]
+  @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 50 }
+  ]
+  NetValue;
+
+  @EndUserText.label: 'Customer Name'
+  @UI.identification: [{ position: 60, label: 'Customer Name' }]
+  @UI.lineItem: [{ position: 60, importance: #HIGH, label: 'Customer Name' }]
+  @UI.selectionField: [{ position: 50 }]
+  @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 60 }
+  ]
+  CustomerName;
+
+  @EndUserText.label: 'Created Date'
+  @UI.identification: [{ position: 70, label: 'Created Date' }]
+  @UI.lineItem: [{ position: 70, importance: #MEDIUM, label: 'Created Date' }]
+  @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 70 }
+  ]
+  CreatedDate;
+    
+}

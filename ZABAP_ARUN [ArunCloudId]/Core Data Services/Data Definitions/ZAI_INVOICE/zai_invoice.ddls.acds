@@ -1,0 +1,17 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'invoice interface'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity zai_invoice as select from zai_invoices
+association to parent zi_order_ai as _order on $projection.OrderId = _order.OrderId
+{
+    key order_id as OrderId,
+    key invoice_no as InvoiceNo,
+    invoice_type as InvoiceType,
+    currcode as Currcode,
+    @Semantics.amount.currencyCode: 'Currcode'
+    net_value as NetValue,
+    customer_name as CustomerName,
+    created_date as CreatedDate,
+    _order
+}

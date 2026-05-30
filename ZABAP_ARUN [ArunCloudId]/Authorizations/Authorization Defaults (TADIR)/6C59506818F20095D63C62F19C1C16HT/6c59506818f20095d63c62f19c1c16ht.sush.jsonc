@@ -1,0 +1,9 @@
+// The object is not supported in ADT in VS Code.
+// Please use ADT in Eclipse or SAP GUI to edit this object.
+// adt://TRL/sap/bc/adt/aps/iam/sush/6c59506818f20095d63c62f19c1c16ht
+{
+  "name": "6C59506818F20095D63C62F19C1C16HT",
+  "type": "SUSH",
+  "description": "R3TR G4BA ZUR_SALES_AI_V4",
+  "abapLanguageVersion": "cloudDevelopment"
+}

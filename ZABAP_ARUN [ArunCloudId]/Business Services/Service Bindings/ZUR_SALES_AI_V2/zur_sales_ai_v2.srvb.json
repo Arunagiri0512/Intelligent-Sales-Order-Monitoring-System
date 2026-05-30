@@ -1,0 +1,22 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Sales order serv bind",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "bindingType": "ODATA V2",
+  "bindingTypeCategory": "ui",
+  "services": [
+    {
+      "name": "ZUR_SALES_AI_V2",
+      "versions": [
+        {
+          "serviceVersion": "1.0.0",
+          "serviceBuildVersion": "",
+          "serviceDefinition": "ZSRV_SALES_AI"
+        }
+      ]
+    }
+  ]
+}

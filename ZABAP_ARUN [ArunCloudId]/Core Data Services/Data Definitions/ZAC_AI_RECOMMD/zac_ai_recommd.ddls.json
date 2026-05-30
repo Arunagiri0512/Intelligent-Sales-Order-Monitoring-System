@@ -1,0 +1,10 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Ai recommendation projection",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "sourceOrigin": "abapDevelopmentTools",
+  "sourceType": "projectionView"
+}

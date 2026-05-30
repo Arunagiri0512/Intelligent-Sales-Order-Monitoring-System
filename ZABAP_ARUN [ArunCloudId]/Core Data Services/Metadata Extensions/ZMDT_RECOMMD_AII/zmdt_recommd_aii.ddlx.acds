@@ -1,0 +1,263 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Sales Order AI Analysis',
+    typeNamePlural: 'Sales Order AI Analysis',
+    title: {
+      type: #STANDARD,
+      value: 'RecommendationId'
+    }
+  }
+}
+annotate entity zac_ai_recommd
+    with 
+{
+     @UI.facet: [
+    {
+        purpose: #STANDARD,
+         type: #FIELDGROUP_REFERENCE,
+         position: 10,
+         label: 'Sales order Analysis',
+         id: 'Analysis',
+         targetQualifier: 'AI_ANALYSIS'
+    }
+  ]
+  
+
+  
+@EndUserText.label: 'Recommendation ID'
+
+@UI.lineItem: [
+  { position: 10, importance: #HIGH }
+]
+
+@UI.identification: [
+  { position: 10 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 10 }
+]
+
+RecommendationId;
+
+
+
+@EndUserText.label: 'Order ID'
+
+@UI.lineItem: [
+  { position: 20 }
+]
+
+@UI.identification: [
+  { position: 20 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 20 }
+]
+
+OrderId;
+
+
+
+@EndUserText.label: 'Customer Number'
+
+@UI.lineItem: [
+  { position: 30 }
+]
+
+@UI.identification: [
+  { position: 30 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 30 }
+]
+
+Kunnr;
+
+
+
+@EndUserText.label: 'Action Type'
+
+@UI.lineItem: [
+  { position: 40, importance: #HIGH }
+]
+
+@UI.identification: [
+  { position: 40 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 40 }
+]
+
+ActionType;
+
+
+
+@EndUserText.label: 'Priority'
+
+@UI.lineItem: [
+  { position: 50, importance: #HIGH }
+]
+
+@UI.identification: [
+  { position: 50 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 50 }
+]
+
+Priority;
+
+
+
+@EndUserText.label: 'AI Reason'
+
+@UI.multiLineText: true
+
+@UI.lineItem: [
+  { position: 60 }
+]
+
+@UI.identification: [
+  { position: 60 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 60 }
+]
+
+AiReason;
+
+@EndUserText.label: 'Recommendation Text'
+
+@UI.multiLineText: true
+
+@UI.lineItem: [
+  { position: 70, importance: #HIGH }
+]
+
+@UI.identification: [
+  { position: 70 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 70 }
+]
+
+RecommendationText;
+
+
+
+
+
+@EndUserText.label: 'Status'
+
+@UI.lineItem: [
+  { position: 80, importance: #HIGH }
+]
+
+@UI.identification: [
+  { position: 80 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 80 }
+]
+
+Status;
+
+
+
+@EndUserText.label: 'Assigned To'
+
+@UI.lineItem: [
+  { position: 90 }
+]
+
+@UI.identification: [
+  { position: 90 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 90 }
+]
+
+AssignedTo;
+
+
+
+@EndUserText.label: 'Due Date'
+
+@UI.lineItem: [
+  { position: 100 }
+]
+
+@UI.identification: [
+  { position: 100 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 100 }
+]
+
+DueDate;
+
+
+
+@EndUserText.label: 'Resolved On'
+
+@UI.lineItem: [
+  { position: 110 }
+]
+
+@UI.identification: [
+  { position: 110 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 110 }
+]
+
+ResolvedOn;
+
+
+
+@EndUserText.label: 'Created By'
+
+@UI.lineItem: [
+  { position: 120 }
+]
+
+@UI.identification: [
+  { position: 120 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 120 }
+]
+
+CreatedBy;
+
+
+
+@EndUserText.label: 'Created At'
+
+@UI.lineItem: [
+  { position: 130 }
+]
+
+@UI.identification: [
+  { position: 130 }
+]
+
+@UI.fieldGroup: [
+  { qualifier: 'AI_ANALYSIS', position: 130 }
+]
+
+CreatedAt;  
+}

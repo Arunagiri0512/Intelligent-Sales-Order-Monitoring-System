@@ -1,0 +1,115 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Sales OrderItem',
+    typeNamePlural: 'Sales Order Items',
+    title: {
+      type: #STANDARD,
+      value: 'ItemNo'
+    }
+  }
+}
+annotate entity zac_item with
+{
+    @UI.facet: [
+    {
+      id: 'General',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Item Information',
+      position: 10,
+      targetQualifier: 'ItemInfo'
+    }
+  ]
+  @EndUserText.label: 'Order ID'
+  @UI.identification: [{ position: 10, label: 'Order ID' }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH, label: 'Order ID' }]
+  
+  @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 10 }
+  ]
+  OrderId;
+
+  @EndUserText.label: 'Item Number'
+  @UI.identification: [{ position: 20, label: 'Item Number' }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH, label: 'Item Number' }]
+    @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 20 }
+  ]
+  ItemNo;
+
+  @EndUserText.label: 'Material'
+  @UI.identification: [{ position: 30, label: 'Material' }]
+  @UI.lineItem: [{ position: 30, importance: #HIGH, label: 'Material' }]
+    @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 30 }
+  ]
+  Material;
+
+  @EndUserText.label: 'Material Description'
+  @UI.identification: [{ position: 40, label: 'Material Description' }]
+  @UI.lineItem: [{ position: 40, importance: #HIGH, label: 'Material Description' }]
+   @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 40 }
+  ]
+  MaterialDescription;
+
+  @EndUserText.label: 'Unit'
+  @UI.identification: [{ position: 50, label: 'Unit' }]
+  @UI.lineItem: [{ position: 50, importance: #MEDIUM, label: 'Unit' }]
+    @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 50 }
+  ]
+    @UI.hidden: true
+  UnitField;
+
+  @EndUserText.label: 'Order Quantity'
+  @UI.identification: [{ position: 60, label: 'Order Quantity' }]
+  @UI.lineItem: [{ position: 60, importance: #HIGH, label: 'Order Quantity' }]
+   @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 60 }
+  ]
+  OrderQuantity;
+
+  @EndUserText.label: 'Currency'
+  @UI.identification: [{ position: 70, label: 'Currency' }]
+  @UI.lineItem: [{ position: 70, importance: #MEDIUM, label: 'Currency', hidden: true}]
+    @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 70 }
+  ]
+//  @UI.hidden: true
+  Currcode;
+
+  @EndUserText.label: 'Net Price'
+  @UI.identification: [{ position: 80, label: 'Net Price' }]
+  @UI.lineItem: [{ position: 80, importance: #HIGH, label: 'Net Price' }]
+   @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 80 }
+  ]
+  NetPrice;
+
+  @EndUserText.label: 'Item Status'
+  @UI.identification: [{ position: 90, label: 'Item Status' }]
+  @UI.lineItem: [{ position: 90, importance: #MEDIUM, label: 'Item Status' }]
+   @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 90 }
+  ]
+  ItemStatus;
+
+  @EndUserText.label: 'Created By'
+  @UI.identification: [{ position: 100, label: 'Created By' }]
+  @UI.lineItem: [{ position: 100, importance: #LOW, label: 'Created By' }]
+   @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 100 }
+  ]
+  CreatedBy;
+
+  @EndUserText.label: 'Created At'
+  @UI.identification: [{ position: 110, label: 'Created At' }]
+  @UI.lineItem: [{ position: 110, importance: #LOW, label: 'Created At' }]
+   @UI.fieldGroup: [
+    { qualifier: 'ItemInfo', position: 110 }
+  ]
+  CreatedAt;
+
+}

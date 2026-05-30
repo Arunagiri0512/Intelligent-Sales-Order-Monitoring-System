@@ -1,0 +1,25 @@
+    @AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Sales item Interface'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity zi_item_ai as select from zitem_ai
+association to parent zi_order_ai as _Order
+    on $projection.OrderId = _Order.OrderId
+{
+    key order_id as OrderId,
+    key item_no as ItemNo,
+    material as Material,
+    material_description as MaterialDescription,
+    unit_field as UnitField,
+    @Semantics.quantity.unitOfMeasure: 'UnitField'
+    order_quantity as OrderQuantity,
+    currcode as Currcode,
+    @Semantics.amount.currencyCode: 'Currcode'
+    net_price as NetPrice,
+    item_status as ItemStatus,
+    @Semantics.user.createdBy: true
+    created_by as CreatedBy,
+    @Semantics.systemDateTime.createdAt: true
+    created_at as CreatedAt,
+    _Order
+}

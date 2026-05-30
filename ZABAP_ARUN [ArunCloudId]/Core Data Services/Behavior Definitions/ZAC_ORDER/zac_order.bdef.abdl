@@ -1,0 +1,37 @@
+projection ;
+
+
+define behavior for zac_order //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+  use association _Items { create;  }
+  use association _Recommd {create; }
+  use association _invoice {create; }
+
+  use action GenerateAIAnalysis;
+  use action GenerateInvoice;
+}
+
+define behavior for zac_item
+{
+    use update;
+    use delete;
+    use association _Order;
+}
+
+define behavior for zav_invoice
+{
+    use update;
+    use delete;
+    use association _Order;
+
+}
+
+define behavior for zac_ai_recommd
+{
+    use update;
+    use delete;
+    use association _Order;
+}

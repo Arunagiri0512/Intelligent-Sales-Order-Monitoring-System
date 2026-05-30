@@ -1,0 +1,17 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'invoice projection'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define view entity zav_invoice as projection on zai_invoice
+{
+    key OrderId,
+    key InvoiceNo,
+    InvoiceType,
+    Currcode,
+    @Semantics.amount.currencyCode: 'Currcode'
+    NetValue,
+    CustomerName,
+    CreatedDate,
+    /* Associations */
+    _order : redirected to parent zac_order
+}

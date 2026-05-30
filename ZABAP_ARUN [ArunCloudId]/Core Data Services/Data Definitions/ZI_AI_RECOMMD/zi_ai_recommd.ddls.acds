@@ -1,0 +1,25 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Ai recommendation for order'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity zi_ai_recommd as select from zai_recommd
+association to parent zi_order_ai as _Order
+    on $projection.OrderId = _Order.OrderId
+{
+    key recommendation_id as RecommendationId,
+    key order_id as OrderId,
+    kunnr as Kunnr,
+    action_type as ActionType,
+    priority as Priority,
+    recommendation_text as RecommendationText,
+    ai_reason as AiReason,
+    status as Status,
+    assigned_to as AssignedTo,
+    due_date as DueDate,
+    resolved_on as ResolvedOn,
+    @Semantics.user.createdBy: true
+    created_by as CreatedBy,
+     @Semantics.systemDateTime.createdAt: true
+    created_at as CreatedAt,
+    _Order
+}

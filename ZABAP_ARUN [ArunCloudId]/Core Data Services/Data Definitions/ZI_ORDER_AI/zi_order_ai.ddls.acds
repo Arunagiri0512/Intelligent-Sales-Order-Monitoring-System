@@ -1,0 +1,39 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Sales order Interface'
+@Metadata.ignorePropagatedAnnotations: true
+define root view entity zi_order_ai as select from zroot_sales_ai
+composition [0..*] of zi_item_ai as _Items
+composition [0..*] of zai_invoice as _invoice
+composition [0..*] of zi_ai_recommd as _Recommd
+association [0..1] to zi_status as _status on $projection.Status = _status.StatusCode 
+{
+    key order_id as OrderId,
+    customer_name as CustomerName,
+    created_date as CreatedDate,
+    delivery_date as DeliveryDate,
+    @Semantics.amount.currencyCode: 'Currcode'
+    order_amount as OrderAmount,
+    currcode as Currcode,
+    order_comments as OrderComments,
+    @ObjectModel.text.association: '_status'
+    @Consumption.valueHelpDefinition: [
+{
+  entity: {
+      name: 'zi_status',
+      element: 'StatusText'
+  }
+}
+]
+    status as Status,
+    return_order as ReturnOrder,
+    ai_priority as AiPriority,
+    ai_sentiment as AiSentiment,
+    ai_summary as AiSummary,
+    escalation_required as EscalationRequired,
+    @Semantics.systemDateTime.createdAt: true
+    created_at as CreatedAt,
+    _Items,
+    _invoice,
+    _Recommd,
+    _status
+}

@@ -1,0 +1,8 @@
+@EndUserText.label: 'Sales order  service def'
+define service Zsrv_sales_ai {
+  expose zac_order;
+  expose zac_item;
+  expose zav_invoice;
+  expose zac_ai_recommd;
+  expose zi_status;
+}

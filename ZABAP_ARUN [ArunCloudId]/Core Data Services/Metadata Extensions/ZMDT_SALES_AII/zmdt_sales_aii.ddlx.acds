@@ -1,0 +1,146 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'Sales Order',
+    typeNamePlural: 'Sales Orders',
+    title: {
+      type: #STANDARD,
+      value: 'OrderId'
+    }
+  }
+}
+annotate entity zac_order with
+{
+  @UI.facet: [
+  {
+       purpose: #STANDARD,
+       type: #IDENTIFICATION_REFERENCE,
+       position: 10,
+       label: 'Sales order',
+       id: 'Sales'
+  },
+  {
+  id: 'ItemFacet',
+  type: #LINEITEM_REFERENCE,
+  purpose: #STANDARD,
+  label: 'Items',
+  position: 20,
+  targetElement: '_Items'
+  },
+  {
+  id: 'InvoiceFacet',
+  type: #LINEITEM_REFERENCE,
+  purpose: #STANDARD,
+  label: 'Invoice',
+  position: 30,
+  targetElement: '_invoice'
+  },
+  
+  {
+          id: 'AI_Analysis',
+  type: #LINEITEM_REFERENCE,
+  purpose: #STANDARD,
+  label: 'AI Analysis',
+  position: 40,
+  targetElement: '_Recommd'
+  }
+  ]
+ 
+
+ 
+  @UI.identification: [ { position : 10, label : 'Order Id' }
+//    { position: 20 ,
+//      type: #FOR_ACTION,
+//      dataAction: 'GenerateAIAnalysis', 
+//      label: 'Analyze AI' 
+//      },
+//      { position: 10 ,
+//      type: #FOR_ACTION,
+//      dataAction: 'GenerateInvoice', 
+//      label: 'Generate Invoice' 
+//      }
+      ]
+  @UI.lineItem: [{ position: 10, importance: #HIGH, label: 'Sales Order ID' }]
+   @EndUserText.label: 'Sales Order ID'
+  OrderId;
+  
+  @EndUserText.label: 'Customer Name'
+  @UI.identification: [{ position: 20, label: 'Customer Name' }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH, label: 'Customer Name' }]
+  CustomerName;
+
+  @EndUserText.label: 'Created Date'
+  @UI.identification: [{ position: 30, label: 'Created Date' }]
+  @UI.lineItem: [{ position: 30, importance: #MEDIUM, label: 'Created Date' }]
+  CreatedDate;
+
+  @EndUserText.label: 'Delivery Date'
+  @UI.identification: [{ position: 40, label: 'Delivery Date' }]
+  @UI.lineItem: [{ position: 40, importance: #MEDIUM, label: 'Delivery Date' }]
+  DeliveryDate;
+
+  @EndUserText.label: 'Order Amount'
+  @UI.identification: [{ position: 50, label: 'Order Amount' }]
+  @UI.lineItem: [{ position: 50, importance: #HIGH, label: 'Order Amount' }]
+  OrderAmount;
+
+  @EndUserText.label: 'Currency'
+  @UI.identification: [
+                         { position: 20 ,
+      type: #FOR_ACTION,
+      dataAction: 'GenerateAIAnalysis', 
+      label: 'Analyze AI' 
+      },
+      { position: 10 ,
+      type: #FOR_ACTION,
+      dataAction: 'GenerateInvoice', 
+      label: 'Generate Invoice' 
+      }]
+  @UI.lineItem: [{ position: 60, importance: #MEDIUM, label: 'Currency' }]
+  @UI.hidden: true
+  Currcode;
+
+  @EndUserText.label: 'Customer Comments'
+  @UI.identification: [{ position: 70, label: 'Customer Comments' }]
+  @UI.lineItem: [{ position: 70, importance: #LOW, label: 'Customer Comments' }]
+  OrderComments;
+
+  @EndUserText.label: 'Order Status'
+  @UI.identification: [{ position: 80, label: 'Order Status' }]
+  @UI.lineItem: [{ position: 80, importance: #HIGH, label: 'Order Status' }]
+  
+  Status;
+
+  @EndUserText.label: 'Return Order'
+  @UI.identification: [{ position: 90, label: 'Return Order' }]
+  @UI.lineItem: [{ position: 90, importance: #MEDIUM, label: 'Return Order' }]
+  ReturnOrder;
+
+  @EndUserText.label: 'AI Priority'
+  @UI.identification: [{ position: 100, label: 'AI Priority' }]
+  @UI.lineItem: [{ position: 100, importance: #HIGH, label: 'AI Priority' }]
+  AiPriority;
+
+  @EndUserText.label: 'AI Sentiment'
+  @UI.identification: [{ position: 110, label: 'AI Sentiment' }]
+  @UI.lineItem: [{ position: 110, importance: #HIGH, label: 'AI Sentiment' }]
+  AiSentiment;
+
+  @EndUserText.label: 'AI Summary'
+  @UI.identification: [{ position: 120, label: 'AI Summary' }]
+  @UI.lineItem: [{ position: 120, importance: #LOW, label: 'AI Summary' }]
+  AiSummary;
+
+  @EndUserText.label: 'Escalation Required'
+  @UI.identification: [{ position: 130, label: 'Escalation Required' }]
+  @UI.lineItem: [{ position: 130, importance: #HIGH, label: 'Escalation Required' }]
+  EscalationRequired;
+
+  @EndUserText.label: 'Created At'
+  @UI.identification: [{ position: 140, label: 'Created At' }]
+  @UI.lineItem: [{ position: 140, importance: #LOW, label: 'Created At' }]
+  CreatedAt;
+ 
+
+}

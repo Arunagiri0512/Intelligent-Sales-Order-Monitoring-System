@@ -1,0 +1,8 @@
+// The object is not supported in ADT in VS Code.
+// Please use ADT in Eclipse or SAP GUI to edit this object.
+// adt://TRL/sap/bc/adt/vit/wb/object_type/g4ba/object_name/ZUR_SALES_AI_V4
+{
+  "name": "ZUR_SALES_AI_V4",
+  "type": "G4BA",
+  "abapLanguageVersion": "cloudDevelopment"
+}

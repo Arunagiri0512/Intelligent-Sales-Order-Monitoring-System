@@ -1,0 +1,145 @@
+managed implementation in class zbp_i_order_ai unique;
+strict ( 2 );
+
+define behavior for zi_order_ai //alias <alias_name>
+persistent table zroot_sales_ai
+lock master
+authorization master ( none )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly: update ) OrderId;
+  field ( readonly ) CreatedAt;
+  association _Items { create; }
+  association _invoice {create;}
+  association _Recommd {create;}
+
+
+  action GenerateAIAnalysis ;
+  action GenerateInvoice ;
+  side effects {
+    action GenerateAIAnalysis affects field AiPriority, entity _Recommd;
+//    action GenerateInvoice affects entity _Recommd;
+    action GenerateInvoice affects entity _invoice;
+  }
+  determination SetDefaultValues on modify { create; }
+
+  mapping for zroot_sales_ai
+  {
+    OrderId             = order_id;
+    CustomerName        = customer_name;
+    CreatedDate         = created_date;
+    DeliveryDate        = delivery_date;
+    OrderAmount         = frder_amount;
+    Currcode            = currcode;
+    OrderComments       = order_comments;
+    Status              = STATUS;
+    ReturnOrder         = return_order;
+    AiPriority          = ai_priority;
+    AiSentiment         = ai_sentiment;
+    AiSummary           = ai_summary;
+    EscalationRequired  = escalation_required;
+    CreatedAt           = created_at;
+  }
+
+}
+
+define behavior for ZI_ITEM_AI
+persistent table zitem_ai
+lock dependent by _Order
+authorization dependent by _Order
+{
+
+  update;
+  delete;
+
+  field ( readonly : update ) OrderId;
+  field ( readonly : update ) ItemNo;
+  field ( readonly ) CreatedBy, CreatedAt;
+
+  association _Order;
+
+  validation   ValidatePrice on save { create; update; }
+
+   mapping for zitem_ai
+  {
+    OrderId             = order_id;
+    ItemNo              = item_no;
+    Material            = material;
+    OrderQuantity       = order_quantity;
+    MaterialDescription = material_description;
+    ItemStatus          = item_status;
+    CreatedBy           = created_by;
+    NetPrice            = net_price;
+    Currcode            = currcode;
+    CreatedAt           = created_at;
+    UnitField           = unit_field;
+
+  }
+
+}
+
+
+define behavior for zai_invoice
+persistent table zai_invoices
+lock dependent by _order
+authorization dependent by _order
+{
+update;
+delete;
+field ( readonly : update ) OrderId;
+field ( readonly : update ) InvoiceNo;
+association _order;
+
+mapping for zai_invoices
+    {
+
+        OrderId = order_id;
+        InvoiceNo = invoice_no;
+        CreatedDate = created_date;
+        Currcode = currcode;
+        CustomerName = customer_name;
+        InvoiceType = invoice_type;
+        NetValue = net_value;
+    }
+
+}
+
+define behavior for zi_ai_recommd
+persistent table zai_recommd
+lock dependent by _Order
+authorization dependent by _Order
+{
+
+  update;
+  delete;
+
+  field ( readonly ) OrderId;
+ field ( readonly ) RecommendationId;
+  field ( readonly ) CreatedBy, CreatedAt;
+
+  association _Order;
+
+
+ mapping for zai_recommd
+{
+    RecommendationId   = recommendation_id;
+    OrderId            = order_id;
+    Kunnr              = kunnr;
+    ActionType         = action_type;
+    Priority           = priority;
+    RecommendationText = recommendation_text;
+    AiReason           = ai_reason;
+    Status             = status;
+    AssignedTo         = assigned_to;
+    DueDate            = due_date;
+    ResolvedOn         = resolved_on;
+    CreatedBy          = created_by;
+    CreatedAt          = created_at;
+}
+
+
+
+}

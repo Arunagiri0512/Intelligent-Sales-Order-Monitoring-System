@@ -1,0 +1,23 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Sales item projection'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define  view entity zac_item as projection on zi_item_ai
+
+{
+    key OrderId,
+    key ItemNo,
+    Material,
+    MaterialDescription,
+    UnitField,
+    @Semantics.quantity.unitOfMeasure: 'UnitField'
+    OrderQuantity,
+    Currcode,
+    @Semantics.amount.currencyCode: 'Currcode'
+    NetPrice,
+    ItemStatus,
+    CreatedBy,
+    CreatedAt,
+    /* Associations */
+    _Order  :redirected to parent zac_order
+}

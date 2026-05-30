@@ -1,0 +1,10 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'order_status interface'
+@ObjectModel.resultSet.sizeCategory: #XS
+@Metadata.ignorePropagatedAnnotations: true
+define view entity zi_status as select from zorder_status
+{
+    key status_code as StatusCode,
+    status_text as StatusText
+}

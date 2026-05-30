@@ -1,0 +1,10 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Behavior Implementation for ZI_ORDER_AI",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "category": "behaviorClass",
+  "fixPointArithmetic": true
+}

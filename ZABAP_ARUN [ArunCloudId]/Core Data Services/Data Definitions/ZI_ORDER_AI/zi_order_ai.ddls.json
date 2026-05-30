@@ -1,0 +1,10 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Sales order Interface",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "sourceOrigin": "abapDevelopmentTools",
+  "sourceType": "viewEntity"
+}
